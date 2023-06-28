@@ -5,3 +5,13 @@ export default function handler(req, res) {
 }
 
 
+export   const getData=async()=>{
+  try {
+    const res  =  await fetch("https://api.jikan.moe/v4/seasons/now");
+     const data =  await res.json();
+    return data.data;
+} catch (error) {
+    console.log(error);
+}
+  }
+
