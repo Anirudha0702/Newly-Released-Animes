@@ -3,6 +3,8 @@
 /.pnp
 .pnp.js
 /.env
+/fonts/one-piece-3/license.txt
+/fonts/one-piece-3/readme.txt
 # testing
 /coverage
 

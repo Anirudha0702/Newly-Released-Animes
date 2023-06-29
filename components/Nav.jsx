@@ -1,11 +1,16 @@
 import { useSession ,signIn, signOut, } from 'next-auth/react';
 import Image from 'next/image';
+import localFont from "next/font/local"
+const op_font=localFont({
+    src:"../fonts/One-piece-3/OnePiece-zAqL.ttf",
+    variable:'--font-op'
+})
 export const Nav=()=>{
     const session=useSession();
     const user=session?.data?.user;
     return(
-        <div className="flex justify-between items-center w-full h-12 bg-yellow-300 px-4">
-            <span><b><i>Weeb E Fied</i></b></span>
+        <div className='flex justify-between items-center w-full h-12 bg-yellow-300 px-4'>
+            <span className={`${op_font.variable} font-sans`}><b><i>Weeb E Fied</i></b></span>
             <input type="search" name="" id="" className='focus:outline-none w-1/2 border-b-slate-800 border-b-[1px] bg-transparent pl-2 text-slate-800' placeholder='Search'/>
             {
                 session.status=='authenticated'?(
