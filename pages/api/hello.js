@@ -1,5 +1,3 @@
-// Next.js API route support: https://nextjs.org/docs/api-routes/introduction
-
 export default function handler(req, res) {
   res.status(200).json({ name: 'John Doe' })
 }
@@ -7,7 +5,7 @@ export default function handler(req, res) {
 
 export   const getData=async()=>{
   try {
-    const res  =  await fetch("https://api.jikan.moe/v4/seasons/now");
+    const res  =  await fetch(process.env.NEXT_PUBLIC_API);
      const data =  await res.json();
     return data.data;
 } catch (error) {
