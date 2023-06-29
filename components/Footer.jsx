@@ -5,8 +5,6 @@ const Footer = () => {
   return (
     <>
     <footer className="w-full bg-yellow-300 mt-2 flex justify-center items-center flex-col">
-        {/* <span className=''>Here you will find list of latest released Animes a perfect place for weebs</span> */}
-
        <div className="flex gap-4 h-8 justify-center items-center my-3">
            <span className='border-r-2 pr-1 border-r-slate-800'>Follow us</span>
            <Link href={process.env.NEXT_PUBLIC_GITHUB}><AiOutlineGithub className='w-6 h-6 cursor-pointer'/></Link>
