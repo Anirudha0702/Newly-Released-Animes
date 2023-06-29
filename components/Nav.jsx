@@ -3,11 +3,10 @@ import Image from 'next/image';
 export const Nav=()=>{
     const session=useSession();
     const user=session?.data?.user;
-    console.log(user?.image)
     return(
         <div className="flex justify-between items-center w-full h-12 bg-yellow-300 px-4">
             <span><b><i>Weeb E Fied</i></b></span>
-            <input type="search" name="" id="" className='focus:outline-none w-1/2 border-b-slate-800 border-b-2 bg-transparent pl-2 text-slate-800' placeholder='Search'/>
+            <input type="search" name="" id="" className='focus:outline-none w-1/2 border-b-slate-800 border-b-[1px] bg-transparent pl-2 text-slate-800' placeholder='Search'/>
             {
                 session.status=='authenticated'?(
                     <div className='w-10 h-10 relative rounded-2xl'>
