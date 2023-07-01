@@ -20,13 +20,17 @@ export const Nav=()=>{
             {
                 session.status=='authenticated'?(
                     <div className='w-10 h-10 relative rounded-2xl'>
+                        <Link 
+                        href={'./User'}
+                            >
                         <Image
                             src={user.image}
                             width={100}
                             height={100}
                             alt='user Image'
                             className='absolute  rounded-2xl cursor-pointer'
-                            onClick={()=>{void signOut()}}/>
+                            />
+                        </Link>
                     </div>
                 ):(<button type="" className='w-20 h-10 border-slate-800 border-2 p-1 rounded-lg hover:bg-slate-800 hover:text-yellow-300' onClick={()=>{void signIn()}}>Sign In</button>)
             }
