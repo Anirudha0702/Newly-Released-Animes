@@ -3,7 +3,7 @@ import React from 'react'
 import {AiOutlineGithub,AiFillTwitterSquare,AiFillFacebook,AiOutlineInstagram} from "react-icons/ai"
 import localFont from "next/font/local"
 const op_font=localFont({
-    src:"../fonts/One-piece-3/OnePiece-zAqL.ttf",
+    src:"../fonts/one-piece-3/OnePiece-zAqL.ttf",
     variable:'--font-op'
 })
 const Footer = () => {

@@ -4,7 +4,7 @@ import Image from 'next/image';
 import localFont from "next/font/local"
 import Link from 'next/link';
 const op_font=localFont({
-    src:"../fonts/One-piece-3/OnePiece-zAqL.ttf",
+    src:"../fonts/one-piece-3/OnePiece-zAqL.ttf",
     variable:'--font-op'
 })
 export const Nav=()=>{
