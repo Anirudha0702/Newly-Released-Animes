@@ -5,7 +5,7 @@ export default function handler(req, res) {
 
 export   const getData=async()=>{
   try {
-    const res  =  await fetch(process.env.NEXT_PUBLIC_API);
+    const res  =  await fetch(`${process.env.NEXT_PUBLIC_API}/seasons/now`);
      const data =  await res.json();
     return data.data;
 } catch (error) {

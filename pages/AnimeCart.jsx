@@ -17,7 +17,7 @@ export const AnimeCart = () => {
         animeList.map((item,key)=>{
           return(
             <>
-              <Link href={{pathname:'/${item.mal_id}',query:{data:item.mal_id}}}>
+              <Link href={`/${item.mal_id}`}>
               <div className="relative w-40 h-56" key={key} >
                 <div className="relative w-[100%] h-[100%]">
                 <img className="absolute w-[100%] h-[100%]"src={item.images.jpg.large_image_url
