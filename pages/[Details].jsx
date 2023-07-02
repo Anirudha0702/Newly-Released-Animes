@@ -5,11 +5,11 @@ import noImage from "@/Assets/noImage.jpg"
 
   export const getServerSideProps =async(context) => {
     const anime_id=context.params.Details;
-    console.log(anime_id)
     const res=await fetch(`${process.env.NEXT_PUBLIC_API}/anime/${anime_id}`)
     const anime=await res.json()
     const res_chars=await fetch(`${process.env.NEXT_PUBLIC_API}/anime/${anime_id}/characters`)
     const characters=await res_chars.json();
+    console.log(anime.data.synopsis)
     return{
       props:{anime,characters}
     }
@@ -65,8 +65,8 @@ import noImage from "@/Assets/noImage.jpg"
           <span>{`${anime.data?.status} ${anime.data?.season} ${anime.data?.year}`}</span>
           <span>{`Studio: ${anime.data?.studios[0].name}`}</span>
           <div className="w-fit h-11  flex text-sm gap-2">
-          <button className='bg-blue-400 w-24 rounded-lg p-2'>Add to List</button>
-          <button onClick={()=>setOpen(true)} className='bg-blue-400 w-24 rounded-lg p-2'>More Info</button>
+          <button className='bg-blue-400 w-24 rounded-lg p-2 hover:bg-blue-600 duration-200 ease-in-out '>Add to List</button>
+          <button onClick={()=>setOpen(true)} className='bg-blue-400 w-24 rounded-lg p-2 hover:bg-blue-600 transition duration-200 ease-in-out '>More Info</button>
           </div>
         </div>
         <div className="md:h-80 md:w-full w-44 h-64 relative hidden md:block">
@@ -81,11 +81,11 @@ import noImage from "@/Assets/noImage.jpg"
       </div>
         <details className=''>
           <summary className='text-2xl my-4'>Synopsis</summary>
-          <p className='md:px-0 px-2'>{anime.data?.synopsis}</p>
+          <p className='md:px-0 px-2'>{anime.data?.synopsis===null?'No Synopsis is Provided🥲🥲':anime.data?.synopsis}</p>
         </details>
         <details className=''>
           <summary className='text-2xl my-4'>Background</summary>
-          <p className='md:px-0 px-2'>{anime.data?.background===undefined?'No Background is Provided🥲🥲':anime.data?.background}</p>
+          <p className='md:px-0 px-2'>{anime.data?.background===null?'No Background is Provided🥲🥲':anime.data?.background}</p>
         </details>
         <details className=''>
           <summary className='text-2xl my-4'>Characters and Voice Actors</summary>

@@ -13,9 +13,9 @@ export const Nav=()=>{
     return(
         <div className='flex justify-between items-center w-full h-12 bg-yellow-300 px-4'>
             <Link href={'/'}><span className={`${op_font.variable} font-sans text-xl`}><b><i>Weeb E Fied</i></b></span></Link>
-            <div className="w-1/2  flex items-center ">
-            <input type="search" name="" id="" className='focus:outline-none  border-b-slate-800 border-b-[1px] bg-transparent pl-2 text-slate-800 grow placeholder:text-slate-800' placeholder='Search'/>
-            <BsSearch className='cursor-pointer'/>
+            <div className="w-1/2 mx-1 flex items-center ">
+                <input type="search" name="" id="" className='focus:outline-none  border-b-slate-800 border-b-[1px] bg-transparent pl-2 text-slate-800 grow placeholder:text-slate-800 w-[90%]' placeholder='Search'/>
+                <BsSearch className='cursor-pointer'/>
             </div>
             {
                 session.status=='authenticated'?(
