@@ -1,5 +1,6 @@
 import { signOut, useSession } from 'next-auth/react'
 import Image from 'next/image';
+import Link from 'next/link';
 import React from 'react'
 
 const User = () => {
@@ -18,7 +19,7 @@ const User = () => {
            </div>
            <h3 className='text-xl'>{user?.name}</h3>
            <h5 className='text-sm'>{user?.email}</h5>
-           <button className='w-24 h-10 rounded-lg bg-blue-600 text-md' onClick={()=>void signOut()}>Sign Out</button>
+           <Link href={'/'}><button className='w-24 h-10 rounded-lg bg-blue-600 text-md' onClick={()=>void signOut()}>Sign Out</button></Link>
         </div>
         <div className="w-full sm:w-[60%] grow  h-[70svh] border-2 border-yellow-300 p-2 rounded-lg ">
             <div className='border-b-2 border-b-yellow-300 flex justify-between items-center px-2 w-full h-16'>

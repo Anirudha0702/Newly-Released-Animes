@@ -2,23 +2,10 @@ import Image from 'next/image';
 import {AiFillStar} from "react-icons/ai"
 import React, { useState } from 'react'
 import noImage from "@/Assets/noImage.jpg"
-  export const getStaticPaths=async()=>{
-    const res=await fetch(`${process.env.NEXT_PUBLIC_API}/seasons/now`)
-    const animes=await res.json();
-    const paths=animes.data.map((anime)=>{
-        return{
-          params:{
-            Details:anime.mal_id.toString(),
-          }
-        }
-    })
-    return{
-      paths,
-      fallback:false
-    }
-  }
-  export const getStaticProps =async(context) => {
+
+  export const getServerSideProps =async(context) => {
     const anime_id=context.params.Details;
+    console.log(anime_id)
     const res=await fetch(`${process.env.NEXT_PUBLIC_API}/anime/${anime_id}`)
     const anime=await res.json()
     const res_chars=await fetch(`${process.env.NEXT_PUBLIC_API}/anime/${anime_id}/characters`)
