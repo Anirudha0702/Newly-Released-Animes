@@ -4,10 +4,9 @@ import {FaLocationArrow} from "react-icons/fa"
 const Message=()=>{
     const [open,setOpen]=useState(false);
     const [text,setTect]=useState({})
-    console.log(open)
     if(!open){
         return(
-       <AiFillMessage className="fixed w-16 h-16 top-[85%] right-7 text-blue-400 " onClick={()=>setOpen(true)}/>
+       <AiFillMessage className="cursor-pointer fixed w-16 h-16 top-[85%] right-7 text-blue-400 " onClick={()=>setOpen(true)}/>
         )
     }else{
         return(
