@@ -2,9 +2,11 @@ import React, { useState ,useEffect} from 'react'
 import Link from 'next/link';
 import { getData } from './api/hello';
 import Image from 'next/image';
+import { useSelector } from 'react-redux';
 export const AnimeCart = () => {
   const [animeList,setAnimeList]=useState([]);
-
+  const state=useSelector(state=>state.Animes.animes)
+  console.log(state)
     useEffect(() => {
       getData().then(animes=>setAnimeList(animes));
     },[])

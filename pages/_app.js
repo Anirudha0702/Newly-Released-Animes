@@ -1,12 +1,14 @@
 
+import { wrapper } from '@/State/Store'
 import Footer from '@/components/Footer'
 import Message from '@/components/MessageBox'
 import Nav from '@/components/Nav'
 import '@/styles/globals.css'
 import { SessionProvider } from 'next-auth/react'
 import Head from 'next/head'
+import { Provider } from 'react-redux'
 export default function App({ Component, pageProps: { session, ...pageProps } }) {
-  
+  const {store,props}=wrapper.useWrappedStore(pageProps)
   
   return (
     <SessionProvider session={session}>
@@ -16,9 +18,11 @@ export default function App({ Component, pageProps: { session, ...pageProps } })
         <meta name="viewport" content="width=device-width, initial-scale=1" />
       </Head>
      <div className='bg-slate-800'>
-      <Nav/>
-     <Component {...pageProps} />
-      <Footer/>
+      <Provider store={store}>
+        <Nav/>
+        <Component {...pageProps} />
+        <Footer/>
+      </Provider>
      </div>
      <Message/>
      </SessionProvider>

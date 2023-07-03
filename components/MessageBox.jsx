@@ -10,13 +10,13 @@ const Message=()=>{
         )
     }else{
         return(
-             <div className="fixed sm:w-64 sm:right-3 bottom-2 
+             <div className="fixed sm:w-80 sm:right-3 bottom-2 
               w-[100svw] h-[90svh]  z-10 bg-white rounded-t-xl" >
                 <div className=" w-full h-fit bg-yellow-300 flex justify-between items-center p-2 rounded-t-xl text-slate-800">
                     <h3 className="text-xl">Messages</h3>
                     <AiOutlineDown className='cursor-pointer'onClick={()=>setOpen(false)}/>
                 </div>
-                <div className="  w-full px-2 h-[80%] bg-slate-800"></div>
+                <div className="  w-full px-2 h-[80%] bg-slate-600"></div>
                 <div className="mt-2 px-2 items-center  w-full flex gap-2 ">
                     <input type="text" className="grow rounded-lg border-slate-800 border-2 p-2 h-[17%]" placeholder="Type Your Message" />
                     <FaLocationArrow className="text-slate-800"/>
