@@ -1,6 +1,6 @@
 import { configureStore } from '@reduxjs/toolkit';
 import { createWrapper } from 'next-redux-wrapper';
-import {Animeslice} from './SearchSlice';
+import {Animeslice} from './AnimeSlice';
 const globalStore=()=>
     configureStore({
         reducer:{

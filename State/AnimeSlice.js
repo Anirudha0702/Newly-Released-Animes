@@ -1,14 +1,16 @@
 import { createSlice } from "@reduxjs/toolkit"
 
 const initialState={
-    animes:[]
+    animes:[],
+    title:""
 }
 export const Animeslice=createSlice({
     name:"Animes",
     initialState,
     reducers:{
         setSlice:(state,action)=>{
-            state.animes=action.payload
+            state.animes=action.payload.animes
+            state.title=action.payload.title
         },
     }
 })

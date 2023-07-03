@@ -12,4 +12,14 @@ export   const getData=async()=>{
     console.log(error);
 }
   }
-
+  export   const searchAnime=async(req,res)=>{
+    try {
+      const res  =  await fetch(`${process.env.NEXT_PUBLIC_API}/anime?q=${req.body.key}&sfw`,{
+        method:'GET'
+      });
+       const data =  await res.json();
+      return data.data;
+  } catch (error) {
+      console.log(error);
+  }
+    }
