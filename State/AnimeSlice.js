@@ -2,7 +2,8 @@ import { createSlice } from "@reduxjs/toolkit"
 
 const initialState={
     animes:[],
-    title:""
+    title:"",
+    isLoading:false
 }
 export const Animeslice=createSlice({
     name:"Animes",
@@ -12,8 +13,11 @@ export const Animeslice=createSlice({
             state.animes=action.payload.animes
             state.title=action.payload.title
         },
+        setLoading:(state,action)=>{
+            state.isLoading=action.payload
+        }
     }
 })
-export const {setSlice}=Animeslice.actions
+export const {setSlice,setLoading}=Animeslice.actions
 export const Animes=(state)=>state.Animes.animes;
 export default Animeslice.reducer

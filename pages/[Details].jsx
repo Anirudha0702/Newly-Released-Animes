@@ -19,7 +19,7 @@ import {useSelector } from 'react-redux';
   const state=useSelector(state=>state.Animes.animes);
   const router=useRouter();
   const anime=state[router.query.key]
-  console.log(anime)
+  console.log(characters)
   return (
   <>
       {
@@ -30,16 +30,16 @@ import {useSelector } from 'react-redux';
                   <span>Type</span><span>{anime.type}</span>
                   <span>Episodes</span><span>{anime.episodes}</span>
                   <span>Status</span><span>{anime.status}</span>
-                  <span>Aired</span><span>{`${anime.aired.prop.string}`}</span>
+                  <span>Aired</span><span>{`${anime.aired?.prop?.string}`}</span>
                   <span>Premired</span><span>{`${anime.season} ${anime.year}`}</span>
-                  <span>Broadcast</span><span>{anime.broadcast.string}</span>
-                  <span>Producers</span><span>{anime.producers.map((producer,key)=>producer.name)}</span>
-                  <span>Licensors</span><span>{anime.licensors.map((licensor,key)=>licensor.name)}</span>
-                  <span>Studios</span><span>{anime.studios.map((studio,key)=>studio.name)}</span>
+                  <span>Broadcast</span><span>{anime.broadcast?.string}</span>
+                  <span>Producers</span><span>{anime.producers?.map((producer,key)=>producer.name)}</span>
+                  <span>Licensors</span><span>{anime.licensors?.map((licensor,key)=>licensor.name)}</span>
+                  <span>Studios</span><span>{ anime.studios.length>0 ?anime.studios?.map((studio,key)=>studio?.name):"Not Provided"}</span>
                   <span>Source</span><span>{anime.source}</span>
-                  <span>Genres</span><span>{anime.genres.map((genre,key)=>genre.name)}</span>
-                  <span>Themes</span><span>{anime.themes.map((theme,key)=>theme.name)}</span>
-                  <span>Demographcs</span><span>{anime.demographics.map((demographic,key)=>demographic.name)}</span>
+                  <span>Genres</span><span>{anime.genres?.map((genre,key)=>genre.name)}</span>
+                  <span>Themes</span><span>{anime.themes?.map((theme,key)=>theme.name)}</span>
+                  <span>Demographcs</span><span>{anime.demographics?.map((demographic,key)=>demographic.name)}</span>
                   <span>Duration</span><span>{anime.duration}</span>
                   <span>Rating</span><span>{anime.rating}</span>
             </div>
@@ -66,7 +66,7 @@ import {useSelector } from 'react-redux';
           <span>Ranked {`#${anime.rank}`}</span>
           <span>{`${anime.type} (${anime.episodes})`}</span>
           <span>{`${anime.status} ${anime.season} ${anime.year}`}</span>
-          <span>{`Studio: ${anime.studios[0].name}`}</span>
+          <span>{`Studio: ${ anime.studios.length>0 ?anime.studios?.map((studio,key)=>studio?.name):"Not Provided"}`}</span>
           <div className="w-fit h-11  flex text-sm gap-2">
           <button className='bg-blue-400 w-24 rounded-lg p-2 hover:bg-blue-600 duration-200 ease-in-out '>Add to List</button>
           <button onClick={()=>setOpen(true)} className='bg-blue-400 w-24 rounded-lg p-2 hover:bg-blue-600 transition duration-200 ease-in-out '>More Info</button>

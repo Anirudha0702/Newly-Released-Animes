@@ -4,7 +4,6 @@ import Image from 'next/image';
 import localFont from "next/font/local"
 import Link from 'next/link';
 import { useState } from 'react';
-import { searchAnime } from '@/pages/api/hello';
 import { useDispatch } from 'react-redux';
 import { setSlice } from '@/State/AnimeSlice';
 const op_font=localFont({
@@ -25,7 +24,6 @@ export const Nav=()=>{
                 animes:data.data,
                 title:`Search Results of ${search}`
              }))
-            
         } catch (error) {
             console.log(error);
         }

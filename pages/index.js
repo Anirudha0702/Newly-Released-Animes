@@ -1,10 +1,9 @@
-
-import Image from 'next/image'
 import  AnimeCart  from '@/pages/AnimeCart'
+import HomePage from './HomePage'
 export default function Home() {
   return (
     <>
-      <AnimeCart/>
+      <HomePage/>
     </>
   )
 }

@@ -4,20 +4,21 @@ import { getData } from './api/hello';
 import Image from 'next/image';
 import { useDispatch, useSelector } from 'react-redux';
 import { setSlice } from '@/State/AnimeSlice';
+import Loading from '@/components/Loading';
 export const AnimeCart = () => {
   const dispatch=useDispatch();
   const [data, setData] = useState(null)
-  const [isLoading, setLoading] = useState(false)
-  useEffect(() => {
+  const [isLoading, setLoading] = useState(true)
+  useEffect(async() => {
     setLoading(true)
-    getData().then(animes=>dispatch(setSlice({
+    const data=await getData().then(animes=>dispatch(setSlice({
       animes:animes,
       title:"Upcomming and released animes of this season"
     })));
     setLoading(false)
   },[])
   const state=useSelector(state=>state.Animes)
-  if(isLoading)return <h2 className="text-2xl text-white text-center mb-2">loadin</h2>
+  if(isLoading)return <Loading/>
   return (
     <>
       <h2 className="text-2xl text-white text-center mb-2">{state.title}</h2>
