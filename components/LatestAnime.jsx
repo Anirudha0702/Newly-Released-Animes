@@ -12,13 +12,12 @@ const LatestAnime = () => {
     })));
   },[])
   const animes=useSelector(state=>state.Animes.animes);
-  console.log(animes)
   return (
     <>
         <h3 className='text-slate-800 bg-yellow-300  my-2 p-2 text-lg'>Latest Animes</h3>
         <div  className='h-52 flex   overflow-x-scroll no-scrollbar gap-2 '>
           {
-            animes.map((anime,key)=>{
+            animes?.map((anime,key)=>{
               return(
                 <>
                 <div key={key} className=" h-full text-white flex-shrink-0 relative w-36">

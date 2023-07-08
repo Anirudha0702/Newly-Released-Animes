@@ -1,5 +1,6 @@
 import Cover from '@/components/Cover'
 import LatestAnime from '@/components/LatestAnime'
+import News from '@/components/News'
 import React from 'react'
 
 const HomePage = () => {
@@ -7,6 +8,7 @@ const HomePage = () => {
     <>
       <Cover/>
     <LatestAnime/>
+    {/* <News/> */}
     </>
   )
 }

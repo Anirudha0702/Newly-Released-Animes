@@ -21,34 +21,24 @@ const [randomAnime,setRandomAnime]=useState({})
 useEffect(()=>{
     const anime=getRandomAnime().then(data=>setRandomAnime(data))
 },[])
+console.log(randomAnime)
   return (
-    <div className='mt-2 md:w-[80%] border-2 border-slate-600 mx-auto p-2 grid sm:flex relative'>
-        
-        <div className="w-36 h-44 relative border-2 border-slate-800 shrink-0">
-            <Image
-            src={randomAnime.images?.webp?.image_url}
-            alt={"anime Cover"}
-            fill={true}
-            className='absolute  block w-full'
+    <div className='mt-2  relative w-full h-[60svh]'>
+        <Image
+        src={randomAnime.images?.webp?.large_image_url
+        }
+        alt={"anime Cover"}
+        fill={true}
+        className='absolute  object-cover'
             />
+        <div className="flex flex-col relative w-1/2 bg-green-600">
+
+            <span className='text-3xl text-white font-bold'>{randomAnime.title}</span>
         </div>
-        <div className=" flex flex-col p-2 gap-1">
-            <span className="text-yellow-300 text-xl">{randomAnime.title?randomAnime.title:"name"}</span>
-            <p className='text-yellow-400'><span className="text-slate-400 mr-2">Genres:</span>
-            {
-                randomAnime.genres?.map((genre,key)=>`${genre?.name},`)
-            }
-            </p>
-            <p className="text-sm  text-slate-400">
-                {
-                    randomAnime.background!=null?randomAnime.background:"background is comming soon"
-                }
-            </p>
-        </div>
-        <Link 
+        {/* <Link 
         href={"./details"}>
         <button className='absolute bottom-2 right-2 text-white bg-red-400 z-10 w-20 h-10 rounded-lg'>More Info</button>
-        </Link>
+        </Link> */}
     </div>
   )
 }
