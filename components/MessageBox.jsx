@@ -1,6 +1,6 @@
 import { useState } from "react";
 import {AiFillMessage,AiOutlineDown} from "react-icons/ai";
-import {FaLocationArrow} from "react-icons/fa"
+import {FaLocationArrow,FaUserCircle} from "react-icons/fa"
 const Message=()=>{
     const [open,setOpen]=useState(false);
     const [text,setTect]=useState({})
@@ -16,7 +16,11 @@ const Message=()=>{
                     <h3 className="text-xl">Messages</h3>
                     <AiOutlineDown className='cursor-pointer'onClick={()=>setOpen(false)}/>
                 </div>
-                <div className="  w-full px-2 h-[80%] bg-slate-600"></div>
+                <div className="  w-full p-2 h-[80%] bg-slate-600 text-white flex">
+                    <FaUserCircle/> <div className="p-2 rounded-lg bg-blue-600  h-fit">
+                        Sorry🥲 This Feature will be available soon🤩
+                    </div>
+                </div>
                 <div className="mt-2 px-2 items-center  w-full flex gap-2 ">
                     <input type="text" className="grow rounded-lg border-slate-800 border-2 p-2 h-[17%]" placeholder="Type Your Message" />
                     <FaLocationArrow className="text-slate-800"/>
