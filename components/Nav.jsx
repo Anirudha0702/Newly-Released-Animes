@@ -6,6 +6,7 @@ import Link from 'next/link';
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { setSlice } from '@/State/AnimeSlice';
+import { useRouter } from 'next/router';
 const op_font=localFont({
     src:"../fonts/one-piece-3/OnePiece-zAqL.ttf",
     variable:'--font-op'
@@ -14,19 +15,12 @@ export const Nav=()=>{
     const session=useSession();
     const [search,setSearch]=useState("")
     const dispatch=useDispatch();
+    const router =useRouter();
     const handleSearch=async(e)=>{
-        try {
-            const res  =  await fetch(`${process.env.NEXT_PUBLIC_API}/anime?q=${search}&sfw`,{
-              method:'GET'
-            });
-             const data =  await res.json();
-             dispatch(setSlice({
-                animes:data.data,
-                title:`Search Results of ${search}`
-             }))
-        } catch (error) {
-            console.log(error);
-        }
+        
+        router.push(`/SearchResult?search=${search}`);
+        setSearch("gg");
+        console.log("redirected");
     }
     const user=session?.data?.user;
     return(
